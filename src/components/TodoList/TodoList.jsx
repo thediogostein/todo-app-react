@@ -2,7 +2,7 @@ import React from 'react';
 import TodoItem from '../TodoItem/TodoItem';
 import styles from './TodoList.module.css';
 
-function TodoList({ todos }) {
+function TodoList({ todos, handleCheck, handleDelete }) {
   return (
     <ul className={styles.ul}>
       {todos.length ? (
@@ -12,6 +12,8 @@ function TodoList({ todos }) {
             id={todo.id}
             name={todo.name}
             isCompleted={todo.isCompleted}
+            handleCheck={handleCheck}
+            handleDelete={handleDelete}
           />
         ))
       ) : (

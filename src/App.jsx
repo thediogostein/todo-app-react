@@ -24,13 +24,29 @@ function App() {
     setData((prevData) => [newTodo, ...prevData]);
   }
 
+  function handleCheck(id) {
+    const updatedTodos = data.map((todo) =>
+      id === todo.id ? { ...todo, isCompleted: !todo.isCompleted } : todo
+    );
+    setData(updatedTodos);
+  }
+
+  function handleDelete(id) {
+    const remainingTodos = data.filter((todo) => todo.id !== id);
+    setData(remainingTodos);
+  }
+
   return (
     <>
       <Header />
       <main className="wrapper">
         <AddTodoItem addTodo={addTodo} />
         <Filters />
-        <TodoList todos={data} />
+        <TodoList
+          todos={data}
+          handleCheck={handleCheck}
+          handleDelete={handleDelete}
+        />
       </main>
     </>
   );

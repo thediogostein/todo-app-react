@@ -3,10 +3,15 @@ import styles from './TodoItem.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 
-function TodoItem({ id, name, isCompleted }) {
+function TodoItem({ id, name, isCompleted, handleCheck, handleDelete }) {
   return (
     <li className={styles.li}>
-      <input type="checkbox" id={id} />
+      <input
+        type="checkbox"
+        id={id}
+        defaultChecked={isCompleted}
+        onChange={() => handleCheck(id)}
+      />
       <label htmlFor={id}>{name}</label>
       <FontAwesomeIcon
         icon={faPenToSquare}
@@ -20,6 +25,7 @@ function TodoItem({ id, name, isCompleted }) {
         role="button"
         tabIndex="0"
         aria-label={`Edit ${name}`}
+        onClick={() => handleDelete(id)}
       />
     </li>
   );
