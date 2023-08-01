@@ -1,0 +1,19 @@
+.form {
+  margin: 1rem 0;
+}
+
+.form label {
+  display: inline-block;
+}
+
+.form input {
+  width: 100%;
+  padding: 0.65rem;
+  margin-bottom: 0.75rem;
+}
+
+.form button {
+  width: 100%;
+  padding: 0.65rem 1.2rem;
+  font-size: inherit;
+}

@@ -1,0 +1,28 @@
+.li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.li label {
+  margin-right: auto;
+}
+
+.li input {
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-right: 0.5rem;
+}
+
+.li svg {
+  width: 48px;
+  height: 48px;
+}
+.li svg:first-of-type {
+  margin-right: 0.5rem;
+}
+
+.li svg:nth-of-type(2) {
+  /* color: beige; */
+}
