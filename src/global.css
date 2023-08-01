@@ -16,6 +16,10 @@ h3 {
   margin: 0;
 }
 
+ul {
+  list-style-type: none;
+}
+
 .wrapper {
   width: 90%;
   max-width: 400px;

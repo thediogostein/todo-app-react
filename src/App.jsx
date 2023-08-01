@@ -36,6 +36,13 @@ function App() {
     setData(remainingTodos);
   }
 
+  function handleEdit(id, newName) {
+    const updatedTodos = data.map((todo) =>
+      todo.id === id ? { ...todo, name: newName } : todo
+    );
+    setData(updatedTodos);
+  }
+
   return (
     <>
       <Header />
@@ -46,6 +53,7 @@ function App() {
           todos={data}
           handleCheck={handleCheck}
           handleDelete={handleDelete}
+          handleEdit={handleEdit}
         />
       </main>
     </>

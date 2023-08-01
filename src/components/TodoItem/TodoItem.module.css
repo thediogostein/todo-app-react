@@ -1,28 +1,43 @@
-.li {
+/* View mode */
+.viewTemplate {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
 }
 
-.li label {
+.viewTemplate label {
   margin-right: auto;
 }
 
-.li input {
+.viewTemplate input {
   width: 1.4rem;
   height: 1.4rem;
   margin-right: 0.5rem;
 }
 
-.li svg {
+.viewTemplate svg {
   width: 48px;
   height: 48px;
 }
-.li svg:first-of-type {
+.viewTemplate svg:first-of-type {
   margin-right: 0.5rem;
 }
 
-.li svg:nth-of-type(2) {
+.viewTemplate svg:nth-of-type(2) {
   /* color: beige; */
+}
+
+/* Editing mode */
+.editingTemplate {
+}
+
+.editingTemplate input {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+
+.editingTemplate button:first-of-type {
+  margin-right: 0.5rem;
 }
