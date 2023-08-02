@@ -1,19 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AddTodoItem from './components/AddTodoItem/AddTodoItem';
 import Header from './components/Header/Header';
 import TodoList from './components/TodoList/TodoList';
-import Filters from './components/Filters/Filters';
+import Search from './components/Search/Search';
+
 import { nanoid } from 'https://cdn.jsdelivr.net/npm/nanoid/nanoid.js';
 import './global.css';
 
-const todosData = [
-  { id: 'todo-0', name: 'Comprar picanha', isCompleted: false },
-  { id: 'todo-1', name: 'Comprar arroz', isCompleted: true },
-  { id: 'todo-2', name: 'Comprar feijão', isCompleted: false },
-];
+// const todosData = [
+//   { id: 'todo-0', name: 'Comprar picanha', isCompleted: false },
+//   { id: 'todo-1', name: 'Comprar arroz', isCompleted: true },
+//   { id: 'todo-2', name: 'Comprar feijão', isCompleted: false },
+// ];
 
 function App() {
-  const [data, setData] = useState(todosData);
+  const [data, setData] = useState(JSON.parse(localStorage.getItem('data')));
+  const [searchQuery, setSearchQuery] = useState('');
 
   function addTodo(name) {
     const newTodo = {
@@ -43,17 +45,22 @@ function App() {
     setData(updatedTodos);
   }
 
+  useEffect(() => {
+    localStorage.setItem('data', JSON.stringify(data));
+  }, [data]);
+
   return (
     <>
       <Header />
       <main className="wrapper">
         <AddTodoItem addTodo={addTodo} />
-        <Filters />
+        <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         <TodoList
           todos={data}
           handleCheck={handleCheck}
           handleDelete={handleDelete}
           handleEdit={handleEdit}
+          searchQuery={searchQuery}
         />
       </main>
     </>

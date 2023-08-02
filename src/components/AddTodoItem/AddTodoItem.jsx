@@ -17,7 +17,12 @@ function AddTodoItem({ addTodo }) {
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <label className="visually-hidden">Add to do</label>
-      <input type="text" onChange={handleChange} value={newTodo} />
+      <input
+        type="text"
+        onChange={handleChange}
+        value={newTodo}
+        placeholder="Type a new todo"
+      />
       <button>Add todo</button>
     </form>
   );

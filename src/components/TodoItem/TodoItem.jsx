@@ -29,8 +29,13 @@ function TodoItem({
     <>
       <form className={styles.editingTemplate} onSubmit={handleSubmit}>
         <input type="text" onChange={handleChange} />
-        <button onClick={() => setIsEditing(false)}>Cancel</button>
-        <button>Save</button>
+        <button
+          className={styles.editingModeBtn}
+          onClick={() => setIsEditing(false)}
+        >
+          Cancel
+        </button>
+        <button className={styles.editingModeBtn}>Save</button>
       </form>
     </>
   );
