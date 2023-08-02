@@ -28,7 +28,7 @@ function TodoList({
             />
           ))
       ) : (
-        <p>Nothing to display</p>
+        <p>No todos. Add some, maybe?</p>
       )}
     </ul>
   );

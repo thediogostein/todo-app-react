@@ -7,14 +7,15 @@ import Search from './components/Search/Search';
 import { nanoid } from 'https://cdn.jsdelivr.net/npm/nanoid/nanoid.js';
 import './global.css';
 
-// const todosData = [
-//   { id: 'todo-0', name: 'Comprar picanha', isCompleted: false },
-//   { id: 'todo-1', name: 'Comprar arroz', isCompleted: true },
-//   { id: 'todo-2', name: 'Comprar feijão', isCompleted: false },
-// ];
+const todosData = [
+  { id: 'todo-0', name: 'Comprar picanha', isCompleted: false },
+  { id: 'todo-1', name: 'Comprar arroz', isCompleted: true },
+  { id: 'todo-2', name: 'Comprar feijão', isCompleted: false },
+];
 
 function App() {
-  const [data, setData] = useState(JSON.parse(localStorage.getItem('data')));
+  const localStorageData = JSON.parse(localStorage.getItem('data'));
+  const [data, setData] = useState(localStorageData || '');
   const [searchQuery, setSearchQuery] = useState('');
 
   function addTodo(name) {
@@ -55,6 +56,7 @@ function App() {
       <main className="wrapper">
         <AddTodoItem addTodo={addTodo} />
         <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+
         <TodoList
           todos={data}
           handleCheck={handleCheck}
